@@ -19,7 +19,7 @@
                 
                 const location = `${data.location.name}, ${data.location.region}`;
                 const condition = data.current.condition.text;
-                const tempF = Math.round(data.current.temp_f);
+                const tempC = Math.round(data.current.temp_c);
                 const icon = "https:" + data.current.condition.icon;
                 const humidity = data.current.humidity;
                 const wind = `${data.current.wind_mph}mph ${data.current.wind_dir}`;
@@ -34,7 +34,7 @@
                 dateElem.innerHTML = `${dateFormatted}<br>${condition}`;
                 conditionImage.src = icon;
                 conditionImage.alt = condition;
-                tempElem.innerHTML = `${tempF}<sup>&deg;F</sup>`;
+                tempElem.innerHTML = `${tempC}<sup>&deg;C</sup>`;
     
                 detailsElem.innerHTML = `
                     Precipitation: ${precip}<br>
@@ -49,8 +49,8 @@
                     const card = cards[index];
                     const dayName = new Date(day.date).toLocaleDateString('en-US', { weekday: 'long' });
                     const iconURL = "https:" + day.day.condition.icon;
-                    const maxTemp = Math.round(day.day.maxtemp_f);
-                    const minTemp = Math.round(day.day.mintemp_f);
+                    const maxTemp = Math.round(day.day.maxtemp_c);
+                    const minTemp = Math.round(day.day.mintemp_c);
     
                     card.children[0].textContent = index === 0 ? "Today" : dayName;
                     card.querySelector("img").src = iconURL;
